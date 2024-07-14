@@ -92,7 +92,18 @@ if __name__ == '__main__':
         match_data.append(get_match_data(i))
         time.sleep(0.5)
         
-    match_data = pd.DataFrame(match_data,columns=['match_id','away_team_id','away_team_name','home_team_id','home_team_name','away_score','home_score','total_away_score','total_home_score','mvp_name','mvp_position'])
+    columns = ['match_id',
+                    'away_team_id',
+                    'away_team_name',
+                    'home_team_id',
+                    'home_team_name',
+                    'away_score',
+                    'home_score',
+                    'total_away_score',
+                    'total_home_score',
+                    'mvp_name',
+                    'mvp_position']
+    match_data = pd.DataFrame(match_data,columns=columns)
     # match_data.to_excel('.\\数据\\match_data.xlsx',index=False)
     print(match_data)
 
