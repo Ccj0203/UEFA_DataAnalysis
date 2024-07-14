@@ -104,7 +104,7 @@ if __name__ == '__main__':
                     'mvp_name',
                     'mvp_position']
     match_data = pd.DataFrame(match_data,columns=columns)
-    # match_data.to_excel('.\\数据\\match_data.xlsx',index=False)
+    # match_data.to_excel('.\\data\\match_data.xlsx',index=False)
     print(match_data)
 
 
