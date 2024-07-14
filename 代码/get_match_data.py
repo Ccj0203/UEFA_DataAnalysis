@@ -7,6 +7,7 @@ import json
 import requests
 from tqdm import *
 import time
+from get_match_info import get_match_info
 
 headers = {
     'Accept':'application/json, text/plain, */*',
@@ -14,20 +15,6 @@ headers = {
     'Accept-Language':'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
     'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0'
 }
-
-# 获取比赛id
-def get_matches_info():
-    url = "https://match.uefa.com/v5/matches?competitionId=3&fromDate=2024-06-15&limit=55&offset=0&order=ASC&phase=ALL&seasonYear=2024&toDate=2024-07-14&utcOffset=8"
-    
-    print('开始爬取比赛id')
-    res = requests.get(url,headers=headers)
-
-    # 读取json数据
-    data = json.loads(res.text)
-    print('爬取比赛id完成')
-    # 整理出比赛id
-    return [i['id'] for i in data]
-
 
 def get_match_data(id):
     url = "https://match.uefa.com/v5/matches?matchId=%s" % id
@@ -96,16 +83,17 @@ def get_match_data(id):
 
 if __name__ == '__main__':
     # 获取比赛id
-    match_ids = get_matches_info()
+    match_ids = get_match_info()
     # print(match_ids)
 
     # match_data = get_match_data(2036161)
     match_data = []
-    for i in tqdm(match_ids):
+    for i in tqdm(match_ids[:2]):
         match_data.append(get_match_data(i))
         time.sleep(0.5)
         
     match_data = pd.DataFrame(match_data,columns=['match_id','away_team_id','away_team_name','home_team_id','home_team_name','away_score','home_score','total_away_score','total_home_score','mvp_name','mvp_position'])
-    match_data.to_excel('.\\数据\\match_data.xlsx',index=False)
+    # match_data.to_excel('.\\数据\\match_data.xlsx',index=False)
+    print(match_data)
 
 
