@@ -31,12 +31,18 @@ if __name__ == '__main__':
     match_team_data = []
     for i in tqdm(match_ids):
         try:
-            match_team_data.append(get_match_team_data(i))
+            match_team_data.append({
+                'match_id':i,
+                'match_team_data':get_match_team_data(i)
+            })
             time.sleep(0.5)
         except:
             print('请求失败，重新请求')
             time.sleep(3)
-            match_team_data.append(get_match_team_data(i))
+            match_team_data.append({
+                'match_id':i,
+                'match_team_data':get_match_team_data(i)
+            })
             time.sleep(0.5)  
     
     with open('data\\match_team_data.json','w',encoding='utf-8') as f:
