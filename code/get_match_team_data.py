@@ -20,9 +20,9 @@ def get_match_team_data(id):
     print('正在获取比赛id为%s的比赛数据' % id)
     url = "https://matchstats.uefa.com/v1/team-statistics/%s" % id
     res = requests.get(url,headers=headers)
-    data = json.loads(res.text)[0]
+    data = json.loads(res.text)
 
-    return data #输出的是json
+    return data #输出的是一个list，内含两个json
 
 if __name__ == '__main__':
     # 获取比赛id
@@ -31,9 +31,11 @@ if __name__ == '__main__':
     match_team_data = []
     for i in tqdm(match_ids):
         try:
+            match_teams_data = get_match_team_data(i)
             match_team_data.append({
                 'match_id':i,
-                'match_team_data':get_match_team_data(i)
+                'match_team1_data':match_teams_data[0],
+                'match_team2_data':match_teams_data[1],
             })
             time.sleep(0.5)
         except:
@@ -41,7 +43,8 @@ if __name__ == '__main__':
             time.sleep(3)
             match_team_data.append({
                 'match_id':i,
-                'match_team_data':get_match_team_data(i)
+                'match_team1_data':match_teams_data[0],
+                'match_team2_data':match_teams_data[1],
             })
             time.sleep(0.5)  
     
