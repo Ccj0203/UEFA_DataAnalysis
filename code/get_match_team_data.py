@@ -48,5 +48,6 @@ if __name__ == '__main__':
             })
             time.sleep(0.5)  
     
+    # 保存json文件
     with open('data\\match_team_data.json','w',encoding='utf-8') as f:
         json.dump(match_team_data,f,ensure_ascii=False,indent=4)
