@@ -41,7 +41,8 @@ if __name__ == '__main__':
     match_team_data_long[['stat_name']].drop_duplicates().reset_index(drop=True).to_excel('data\\match_team_data_STAT_NAME.xlsx',index=False)
 
     match_team_data_wide = match_team_data_long.pivot(index=['match_id', 'team_id'], columns='stat_name', values='stat_value')
-    match_team_data_wide.to_excel('data\\match_team_data_WIDE.xlsx',index=True)
+    match_team_data_wide.reset_index(inplace=True)
+    match_team_data_wide.to_excel('data\\match_team_data_WIDE.xlsx',index=False)
 
 
 
