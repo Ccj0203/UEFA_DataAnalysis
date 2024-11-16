@@ -22,7 +22,9 @@
 
 ## 数据分析发现
 
-### 各裁判每场黄牌总数直方图
+### 黄牌数量
+
+#### 各裁判每场黄牌数
 
 ![alt text](image.png)
 
@@ -37,3 +39,36 @@
 比赛数量 | 平均 | 标准差 | 最小值 | 25% | 中位数 | 75% | 最大值
 ----|----|----|----|----|----|----|----
 49 | 4.22 | 1.96 | 1 | 3 | 4 | 5 | 9
+
+各裁判平均黄牌数
+
+ref_name | yellow_cards | match_count
+----|----|----
+Jesús Gil Manzano | 7.00 | 1
+Daniel Siebert | 7.00 | 2
+Danny Makkelie | 7.00 | 2
+Umut Meler | 6.33 | 3
+István Kovács | 6.00 | 2
+Felix Zwayer | 4.75 | 4
+Clément Turpin | 4.67 | 3
+Slavko Vinčić | 4.67 | 3
+Facundo Tello | 4.50 | 2
+Daniele Orsato | 4.25 | 4
+Marco Guida | 4.00 | 2
+Ivan Kružliak | 4.00 | 2
+Glenn Nyberg | 3.67 | 3
+Sandro Schärer | 3.50 | 2
+François Letexier | 3.50 | 4
+Artur Soares Dias | 3.00 | 3
+Szymon Marciniak | 3.00 | 2
+Michael Oliver | 2.00 | 4
+Anthony Taylor | 1.50 | 3
+
+#### 不同比赛阶段黄牌数
+
+phase | yellow_cards
+----|----
+Group | 4.47
+Knockout | 5.27
+
+淘汰赛阶段的身体接触果然还是要更火爆一些！
