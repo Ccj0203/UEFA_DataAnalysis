@@ -119,6 +119,13 @@ def referee_data_json_to_long(json_text):
     
     return pd.DataFrame(output, columns=['match_id', 'ref_name', 'ref_country', 'ref_role'])
 
+def get_team_dict(df_wide):
+    home_team_all = df_wide[['match_homeTeam_id', 'match_homeTeam_name']].drop_duplicates()
+    home_team_all.columns = ['team_id', 'team_name']
+    away_team_all = df_wide[['match_awayTeam_id', 'match_awayTeam_name']].drop_duplicates()
+    away_team_all.columns = ['team_id', 'team_name']
+    return pd.concat([home_team_all, away_team_all]).drop_duplicates()
+
 
 if __name__ == '__main__':
 
@@ -134,3 +141,7 @@ if __name__ == '__main__':
 
     referee_data_long = referee_data_json_to_long(js_match_data)
     referee_data_long.to_excel('data\\referee_data_LONG.xlsx', index=False)
+
+    # 利用match_data_wide整理一份球队id和球队名称的字典表
+    team_all = get_team_dict(match_data_wide)
+    team_all.to_excel('data\\team_dict.xlsx', index=False)

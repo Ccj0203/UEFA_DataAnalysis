@@ -72,3 +72,40 @@ Group | 4.47
 Knockout | 5.27
 
 淘汰赛阶段的身体接触果然还是要更火爆一些！
+
+
+### 跑动数据
+#### 各球队平均跑动距离
+team_name | distance_covered
+----|----
+Portugal | 127.15
+Slovakia | 124.76
+Slovenia | 122.73
+Germany | 122.12
+England | 120.87
+Switzerland | 119.57
+Spain | 118.95
+Croatia | 118.90
+Czechia | 117.15
+Italy | 116.47
+Albania | 115.83
+Austria | 115.54
+Ukraine | 114.50
+France | 113.77
+Serbia | 113.57
+Hungary | 113.09
+Poland | 112.94
+Denmark | 112.81
+Türkiye | 112.55
+Georgia | 112.14
+Scotland | 111.64
+Romania | 111.59
+Belgium | 109.97
+Netherlands | 108.38
+
+#### 跑动更多的球队赛果统计
+比赛结果 | 场次
+----|----
+获胜 | 19
+打平 | 18
+失利 | 14
